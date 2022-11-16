@@ -4,29 +4,29 @@ from tkinter import*
 fenetre1=Tk()
 fenetre1.title('Exercice 1')
 
-
+# ------------------------------------ Création de la barre de menu
 def tabeffacer(): 
-    tableau.delete(ALL)         # effacement du tableau 
+    tableau.delete(ALL)         # Effacement du tableau 
  
-# creation de la barre de menu
+# Création de la barre de menu
 menuDraweasy = Menu(fenetre1)
  
-# creation du menu fichier
+# Création du menu fichier
 fichier = Menu(menuDraweasy)
-menuDraweasy.add_cascade(label="Fichier",menu=fichier)                 # on crée une barre de menu
-fichier.add_command(label="Quitter", command=fenetre1.destroy)         # on ajoute une option au menu
+menuDraweasy.add_cascade(label="Fichier",menu=fichier)                 # On crée une barre de menu
+fichier.add_command(label="Quitter", command=fenetre1.destroy)         # On ajoute une option au menu
 
-# creation du menu eplacer
+# Création du menu eplacer
 deplacer = Menu(menuDraweasy)
 menuDraweasy.add_cascade(label="Déplacer",menu=deplacer)
 deplacer.add_command(label="Déplacer cet item", command=lambda : tabdeplacer()) 
  
-# creation du menu effacer
+# Création du menu effacer
 effacer = Menu(menuDraweasy)
 menuDraweasy.add_cascade(label="Effacer",menu=effacer)
 effacer.add_command(label="Effacer tout", command=lambda : tabeffacer())        
  
-# afficher le menu
+# Afficher le menu
 fenetre1.config(menu=menuDraweasy)
     
     
