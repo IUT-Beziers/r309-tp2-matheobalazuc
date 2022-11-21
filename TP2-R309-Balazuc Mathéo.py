@@ -72,7 +72,7 @@ fenetre1.config(menu=menuDraweasy)
 
 #Boutton afficher PC
 def affichepc():
-    # get image and display
+    
     image = tk.PhotoImage(file = "pc.png")
     imageLabel.configure(image = image)
     imageLabel.image = image
@@ -90,7 +90,7 @@ imageLabel.pack(side=tk.LEFT)
     
 #Boutton afficher SWITCH
 def afficheswitch():
-    # get image and display
+  
     image = tk.PhotoImage(file = "switch.png")
     imageLabel.configure(image = image)
     imageLabel.image = image
@@ -108,7 +108,7 @@ imageLabel.pack(side=tk.LEFT)
 
 #Boutton afficher Routeur
 def afficherouteur():
-    # get image and display
+  
     image = tk.PhotoImage(file = "routeur.png")
     imageLabel.configure(image = image)
     imageLabel.image = image
