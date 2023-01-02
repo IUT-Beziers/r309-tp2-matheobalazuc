@@ -4,7 +4,7 @@ import tkinter as tk
 import random
 
 fenetre1=Tk()
-fenetre1.title('Exercice 1 - Balazuc Mathéo')
+fenetre1.title('R309 - TP2 - Balazuc Mathéo')
 
 fenetre1.geometry("1500x900")
 
@@ -14,36 +14,31 @@ canvas.pack(pady=20)
 def left(e):
    x = -20
    y = 0
-   canvas.move(img, x, y)
+   canvas.move(image1,image2, x, y)
 
 def right(e):
    x = 20
    y = 0
-   canvas.move(img, x, y)
+   canvas.move(image1,image2, x, y)
 
 def up(e):
    x = 0
    y = -20
-   canvas.move(img, x, y)
+   canvas.move(image1,image2, x, y)
 
 def down(e):
    x = 0
    y = 20
-   canvas.move(img, x, y)
+   canvas.move(image1,image2, x, y)
 
 def move(e):
-   global image
+   global image1
    image1 = ImageTk.PhotoImage(Image.open('pc.png'))  
-   img1 = canvas.create_image(150, 80, anchor=NW, image=image1)
-  # image = ImageTk.PhotoImage(Image.open('pc.png'))
-   #img1 = canvas.create_image(e.x, e.y, image=image1)
-
-   #img2 = canvas.create_image(e.x, e.y, image=image2)
-    
-   #img3 = canvas.create_image(e.x, e.y, image=image3)
+   canvas.create_image(e.x, e.y, anchor=NW, image=image1)
+ 
 
 
-
+###############################################################Dessiner un ligne clic droit au debut de la position souhaitez et clic droit à la fin de la position souhaitez
 
 def clic(event):
     canvas.delete(tk.ALL)
@@ -56,23 +51,12 @@ def draw_line(e):
    canvas.old_coords = x, y
 canvas.old_coords = None
 
-
 canvas.bind('<ButtonPress-2>', draw_line)               #Clic droit
 
 canvas.bind("<B1-Motion>", move)                        #Clic gauche
 #canvas.bind('<Button-3>', clic)
 
-def create_image():
-    image1 = ImageTk.PhotoImage(Image.open('pc.png'))
-    #img1 = canvas.create_image(150, 80, anchor=NW, image=image1)
-
-    image2 = ImageTk.PhotoImage(Image.open('switch.png'))
-    #img2 = canvas.create_image(150, 80, anchor=NW, image=image2)
-    
-    image3 = ImageTk.PhotoImage(Image.open('routeur.png'))
-    #img3 = canvas.create_image(150, 80, anchor=NW, image=image3)
-
-                                #Création de la barre de menu
+###############################################################Création de la barre de menu
 def tabeffacer(): 
     tableau.delete(ALL)         # Effacement du tableau 
  
@@ -96,13 +80,18 @@ effacer.add_command(label="Effacer le tableau", command=canvas.destroy)
  
                                                                 # Afficher le menu
 fenetre1.config(menu=menuDraweasy)
- 
+
+############################################################### Lien images 
+
 image1 = tk.PhotoImage(file = "pc.png")
 image2 = tk.PhotoImage(file = "switch.png")
 image3 = tk.PhotoImage(file = "routeur.png")
 
+############################################################### Bouton affichage
 
-#Boutton afficher PC
+
+
+#########################Boutton afficher PC
 def affichepc():
     canvas.create_image (random.randint(50,160),random.randint(60,125),image = image1)  
     imageLabel.configure(image = image)
@@ -119,7 +108,7 @@ button.pack(side=tk.LEFT)
 imageLabel = tk.Label(frame)
 imageLabel.pack(side=tk.LEFT)
     
-#Boutton afficher SWITCH
+#########################Boutton afficher SWITCH
 def afficheswitch():
   
     canvas.create_image (random.randint(50,160),random.randint(60,125),image = image2)
@@ -137,7 +126,7 @@ button.pack(side=tk.LEFT)
 imageLabel = tk.Label(frame)
 imageLabel.pack(side=tk.LEFT)
 
-#Boutton afficher Routeur
+################################Boutton afficher Routeur
 def afficherouteur():
   
     canvas.create_image (random.randint(50,160),random.randint(60,125),image = image3)
@@ -155,5 +144,17 @@ button.pack(side=tk.LEFT)
 imageLabel = tk.Label(frame)
 imageLabel.pack(side=tk.LEFT)
 
+###############################Indication pour dessiner une ligne 
+def afficheligne():
+   frame = tk.Frame(fenetre1)
+   frame.pack()
+
+button = tk.Button(frame,
+                   text="Clique DROIT de votre souris pour dessiner une LIGNE",
+                   command=afficheligne)
+button.pack(side=tk.LEFT)
+
+imageLabel = tk.Label(frame)
+imageLabel.pack(side=tk.LEFT)
 
 fenetre1.mainloop()
