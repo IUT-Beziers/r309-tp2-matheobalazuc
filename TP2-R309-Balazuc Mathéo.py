@@ -88,9 +88,6 @@ image2 = tk.PhotoImage(file = "switch.png")
 image3 = tk.PhotoImage(file = "routeur.png")
 
 ############################################################### Bouton affichage
-
-
-
 #########################Boutton afficher PC
 def affichepc():
     canvas.create_image (random.randint(50,160),random.randint(60,125),image = image1)  
@@ -150,7 +147,7 @@ def afficheligne():
    frame.pack()
 
 button = tk.Button(frame,
-                   text="Clique DROIT de votre souris pour dessiner une LIGNE",
+                   text="Clic DROIT de votre souris pour dessiner une LIGNE",
                    command=afficheligne)
 button.pack(side=tk.LEFT)
 
